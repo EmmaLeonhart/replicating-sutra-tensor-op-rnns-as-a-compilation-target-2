@@ -46,3 +46,7 @@ env/
 Thumbs.db
 .env
 .env.local
+# package-side temp/intermediate files (regenerated on each run)
+replication/sutra-replication-package/experiments/.*
+replication/sutra-replication-package/experiments/_embedding_cache/
+.claude/
