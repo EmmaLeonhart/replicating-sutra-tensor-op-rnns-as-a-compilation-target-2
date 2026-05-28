@@ -17,7 +17,7 @@ was needed.
 | Compiler unit suite                 | `pytest sdk/sutra-compiler/tests/ --ignore=test_simplify_egglog`                        | 207 s, 402 passed / 8 skipped |
 | §3.1 capacity, three LLM substrates | `experiments/rotation_binding_capacity_llm.py`                                          | 957 s (dominated by 3×~175 s embedding) |
 | §3.1 capacity, ESM-2                | `experiments/rotation_binding_capacity_bioinformatics.py`                               | 79 s (model + embed + sweep) |
-| §3.1.1 crosstalk chain              | `experiments/crosstalk_chain.py`                                                        | running (see notes)    |
+| §3.1.1 crosstalk chain              | `experiments/crosstalk_chain.py`                                                        | ~25 min (20 trials × 6 chain depths × 3 substrates) |
 | §3.7 weighted training + round-trip | `experiments/differentiable_training_weighted.py --k 3 --per-class 8 --epochs 30 --seeds 0,1` | 114.8 s          |
 | §3.6 compiled training              | `experiments/differentiable_training_compiled.py --k 5 ... --batched`                   | *not completed — see "Divergences"* |
 
@@ -54,7 +54,7 @@ All 16 paper-table numbers reproduce to the displayed decimal place.
 |-------------------|-------------------------------|------------------------------|
 | nomic-embed-text  | 100.0%                        | 0.0%                          |
 | all-minilm        | 100.0%                        | 0.0%                          |
-| mxbai-embed-large | (running)                     | (running)                     |
+| mxbai-embed-large | 100.0%                        | 0.0%                          |
 
 chain=1 perfect on every substrate; chain=8 at chance, as the paper
 claims. The §3.1 capacity claim is therefore scoped to single-cycle
